@@ -12,3 +12,4 @@ jobs:
         run: |
           echo "GH ACTOR: " "$GITHUB_ACTOR"
           git config --list
+          git config user.email || echo "failed"
