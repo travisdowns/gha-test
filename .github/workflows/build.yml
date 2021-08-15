@@ -1,0 +1,13 @@
+name: test
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out this project
+        uses: actions/checkout@v2
+      - name: Test
+      - run: |
+          echo "GH ACTOR: " "$GITHUB_ACTOR"
