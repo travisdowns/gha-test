@@ -11,3 +11,4 @@ jobs:
       - name: Test
         run: |
           echo "GH ACTOR: " "$GITHUB_ACTOR"
+          git config --list
