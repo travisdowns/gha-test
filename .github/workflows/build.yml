@@ -15,11 +15,16 @@ jobs:
           git config user.email || echo "failed"
       - name: Var test step 1
         run: |
-          export VAR=true
-          echo "(env)     VAR=$VAR"
-          echo "(context) VAR=${{ env.VAR }}"
+          export VAR1=true
+          echo "(env)     VAR1=$VAR1"
+          echo "(context) VAR1=${{ env.VAR1 }}"
+          echo "VAR2=true" >> $GITHUB_ENV
+          echo "(env)     VAR2=$VAR2"
+          echo "(context) VAR2=${{ env.VAR2 }}"
       - name: Var test step 2
         run: |
-          echo "(env)     VAR=$VAR"
-          echo "(context) VAR=${{ env.VAR }}"
+          echo "(env)     VAR1=$VAR1"
+          echo "(context) VAR1=${{ env.VAR1 }}"
+          echo "(env)     VAR2=$VAR2"
+          echo "(context) VAR2=${{ env.VAR2 }}"
 
