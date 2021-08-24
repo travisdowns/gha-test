@@ -27,4 +27,7 @@ jobs:
           echo "(context) VAR1=${{ env.VAR1 }}"
           echo "(env)     VAR2=$VAR2"
           echo "(context) VAR2=${{ env.VAR2 }}"
+          echo "(context) VAR2 == 'x': ${{ env.VAR2 == 'x' }}"
+          echo "(context) VAR2 == x: ${{ env.VAR2 == x }}"
+          echo "(context) VAR2 == 'true': ${{ env.VAR2 == 'true' }}"
 
