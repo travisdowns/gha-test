@@ -13,8 +13,13 @@ jobs:
           echo "GH ACTOR: " "$GITHUB_ACTOR"
           git config --list
           git config user.email || echo "failed"
-      - name: Var test
+      - name: Var test step 1
         run: |
-          VAR=true
+          export VAR=true
           echo "(env)     VAR=$VAR"
           echo "(context) VAR=${{ env.VAR }}"
+      - name: Var test step 2
+        run: |
+          echo "(env)     VAR=$VAR"
+          echo "(context) VAR=${{ env.VAR }}"
+
