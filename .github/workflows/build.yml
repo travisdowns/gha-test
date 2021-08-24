@@ -21,7 +21,7 @@ jobs:
           echo "VAR2=true" >> $GITHUB_ENV
           echo "(env)     VAR2=$VAR2"
           echo "(context) VAR2=${{ env.VAR2 }}"
-          echo "VAR3=1" >> $GITHUB_ENV
+          echo "VAR3=2" >> $GITHUB_ENV
       - name: Var test step 2
         run: |
           echo "(env)     VAR1=$VAR1"
