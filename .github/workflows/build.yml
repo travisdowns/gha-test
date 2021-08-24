@@ -8,29 +8,29 @@ jobs:
     steps:
       - name: Check out this project
         uses: actions/checkout@v2
-      - name: Test
-        run: |
-          echo "GH ACTOR: " "$GITHUB_ACTOR"
-          git config --list
-          git config user.email || echo "failed"
-      - name: Var test step 1
-        run: |
-          export VAR1=true
-          echo "(env)     VAR1=$VAR1"
-          echo "(context) VAR1=${{ env.VAR1 }}"
-          echo "VAR2=true" >> $GITHUB_ENV
-          echo "(env)     VAR2=$VAR2"
-          echo "(context) VAR2=${{ env.VAR2 }}"
-          # echo "VAR3=2" >> $GITHUB_ENV
-      - name: Var test step 2
+      # - name: Test
+      #   run: |
+      #     echo "GH ACTOR: " "$GITHUB_ACTOR"
+      #     git config --list
+      #     git config user.email || echo "failed"
+      # - name: Var test step 1
+      #   run: |
+      #     export VAR1=true
+      #     echo "(env)     VAR1=$VAR1"
+      #     echo "(context) VAR1=${{ env.VAR1 }}"
+      #     echo "VAR2=true" >> $GITHUB_ENV
+      #     echo "(env)     VAR2=$VAR2"
+      #     echo "(context) VAR2=${{ env.VAR2 }}"
+      #     # echo "VAR3=2" >> $GITHUB_ENV
+      - name: Var test
         env:
           VARF: ${{ false }}
           VART: ${{ true }}
         run: |
-          echo "(context) VART=${{ env.VARF }}"
-          echo "(context) VART=${{ env.VART }}"
-          echo "(context) VART && VARF=${{ env.VARF && env.VART }}"
-          echo "(context) VART || VARF=${{ env.VARF || env.VART }}"
-          echo "(context) !VARF=${{ ! env.VARF }}"
-          echo "(context) !VART=${{ ! env.VART }}"
+          echo "VART=${{ env.VARF }}"
+          echo "VART=${{ env.VART }}"
+          echo "VARF && VART=${{ env.VARF && env.VART }}"
+          echo "VARF || VART=${{ env.VARF || env.VART }}"
+          echo "!VARF=${{ ! env.VARF }}"
+          echo "!VART=${{ ! env.VART }}"
 
