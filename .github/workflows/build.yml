@@ -11,6 +11,8 @@ jobs:
         b:
           - first: B
             second: BB
+          - first: X
+            second: XX
     runs-on: ubuntu-20.04
     steps:
       - name: Check out this project
