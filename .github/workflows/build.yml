@@ -9,8 +9,8 @@ jobs:
       matrix:
         a: [A, AA]
         b:
-          first: B
-          second: B
+          - first: B
+            second: BB
     runs-on: ubuntu-20.04
     steps:
       - name: Check out this project
