@@ -46,8 +46,8 @@ jobs:
       - name: Var test
         env:
           a: ${{ matrix.a }}
-          b0: ${{ matrix.b[0] }}
-          b1: ${{ matrix.b[1] }}
+          b0: ${{ matrix.b.first }}
+          b1: ${{ matrix.b.second }}
         run: |
           echo "a=$a"
           echo "b0=$b0"
