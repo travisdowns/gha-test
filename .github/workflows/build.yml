@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         matrix-a: [A, AA]
-        matrix-b: [B, BB]
+        matrix-b: [[B, BB]]
     runs-on: ubuntu-20.04
     steps:
       - name: Check out this project
