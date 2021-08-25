@@ -7,8 +7,8 @@ jobs:
   build:
     strategy:
       matrix:
-        matrix-a: [A, AA]
-        matrix-b: [[B, BB]]
+        a: [A, AA]
+        b: [[B, BB]]
     runs-on: ubuntu-20.04
     steps:
       - name: Check out this project
@@ -43,8 +43,8 @@ jobs:
       #     echo "!!VARF=${{ !! (env.VARF == 'true') }}"
       - name: Var test
         env:
-          a: ${{ matrix-a }}
-          b: ${{ matrix-a }}
+          a: ${{ matrix.a }}
+          b: ${{ matrix.b }}
         run: |
           echo "a=$a"
           echo "b=$b"
