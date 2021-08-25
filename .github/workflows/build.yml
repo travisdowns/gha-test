@@ -27,10 +27,10 @@ jobs:
           VARF: ${{ false }}
           VART: ${{ true }}
         run: |
-          echo "VART=${{ env.VARF }}"
-          echo "VART=${{ env.VART }}"
-          echo "VARF && VART=${{ env.VARF && env.VART }}"
-          echo "VARF || VART=${{ env.VARF || env.VART }}"
-          echo "!VARF=${{ ! env.VARF }}"
-          echo "!!VART=${{ !! env.VART }}"
+          echo "VART=${{ env.VARF == 'true' }}"
+          echo "VART=${{ env.VART == 'true' }}"
+          echo "VARF && VART=${{ env.VARF == 'true' && env.VART == 'true' }}"
+          echo "VARF || VART=${{ env.VARF == 'true' || env.VART  == 'true' }}"
+          echo "!VARF=${{ ! (env.VARF == 'true') }}"
+          echo "!!VART=${{ !! (env.VART == 'true') }}"
 
