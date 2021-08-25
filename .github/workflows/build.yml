@@ -42,13 +42,9 @@ jobs:
       #     echo "!VARF=${{ ! (env.VARF == 'true') }}"
       #     echo "!!VARF=${{ !! (env.VARF == 'true') }}"
       - name: Var test
+        env:
+          a: ${{ matrix-a }}
+          b: ${{ matrix-a }}
         run: |
-          echo "JSON=${{ toJSON(env.VARF)  }}"
-          echo "JSON=${{ toJSON(env.VARF == 'false')  }}"
-          echo "JSON=${{ toJSON(env.VARF == 'true')  }}"
-          echo "VART=${{ env.VARF == 'true' }}"
-          echo "VART=${{ env.VART == 'true' }}"
-          echo "VARF && VART=${{ env.VARF == 'true' && env.VART == 'true' }}"
-          echo "VARF || VART=${{ env.VARF == 'true' || env.VART  == 'true' }}"
-          echo "!VARF=${{ ! (env.VARF == 'true') }}"
-          echo "!!VARF=${{ !! (env.VARF == 'true') }}"
+          echo "a=$a"
+          echo "b=$b"
