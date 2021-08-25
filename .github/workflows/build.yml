@@ -28,6 +28,8 @@ jobs:
           VART: ${{ true }}
         run: |
           echo "JSON=${{ toJSON(env.VARF)  }}"
+          echo "JSON=${{ toJSON(env.VARF == 'false')  }}"
+          echo "JSON=${{ toJSON(env.VARF == 'true')  }}"
           echo "VART=${{ env.VARF == 'true' }}"
           echo "VART=${{ env.VART == 'true' }}"
           echo "VARF && VART=${{ env.VARF == 'true' && env.VART == 'true' }}"
