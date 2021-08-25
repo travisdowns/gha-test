@@ -2,13 +2,13 @@ name: test
 on:
   push:
 
-strategy:
-  matrix:
-    matrix-a: [A, AA]
-    matrix-b: [B, BB]
 
 jobs:
   build:
+    strategy:
+      matrix:
+        matrix-a: [A, AA]
+        matrix-b: [B, BB]
     runs-on: ubuntu-20.04
     steps:
       - name: Check out this project
