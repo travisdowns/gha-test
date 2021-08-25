@@ -8,7 +8,9 @@ jobs:
     strategy:
       matrix:
         a: [A, AA]
-        b: [[B, BB]]
+        b:
+          first: B
+          second: B
     runs-on: ubuntu-20.04
     steps:
       - name: Check out this project
@@ -44,6 +46,9 @@ jobs:
       - name: Var test
         env:
           a: ${{ matrix.a }}
+          b0: ${{ matrix.b[0] }}
+          b1: ${{ matrix.b[1] }}
         run: |
           echo "a=$a"
-          echo "b=$b"
+          echo "b0=$b0"
+          echo "b1=$b1"
