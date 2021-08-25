@@ -32,5 +32,5 @@ jobs:
           echo "VARF && VART=${{ env.VARF && env.VART }}"
           echo "VARF || VART=${{ env.VARF || env.VART }}"
           echo "!VARF=${{ ! env.VARF }}"
-          echo "!VART=${{ ! env.VART }}"
+          echo "!!VART=${{ !! env.VART }}"
 
