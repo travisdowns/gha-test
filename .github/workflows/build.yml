@@ -44,7 +44,6 @@ jobs:
       - name: Var test
         env:
           a: ${{ matrix.a }}
-          b: ${{ matrix.b }}
         run: |
           echo "a=$a"
           echo "b=$b"
