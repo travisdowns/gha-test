@@ -45,12 +45,10 @@ jobs:
       #     echo "VARF || VART=${{ env.VARF == 'true' || env.VART  == 'true' }}"
       #     echo "!VARF=${{ ! (env.VARF == 'true') }}"
       #     echo "!!VARF=${{ !! (env.VARF == 'true') }}"
-      - name: Var test
-        env:
-          a: ${{ matrix.a }}
-          b0: ${{ matrix.b.first }}
-          b1: ${{ matrix.b.second }}
+      - name: URL Test
         run: |
-          echo "a=$a"
-          echo "b0=$b0"
-          echo "b1=$b1"
+          echo 'https://example.com'
+          echo 'https://a.example.com'
+          echo 'https://aa.example.com'
+          echo 'https://a.co'
+          echo 'https://aa.co'
