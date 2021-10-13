@@ -2,53 +2,18 @@ name: test
 on:
   push:
 
-
 jobs:
   build:
-    strategy:
-      matrix:
-        a: [A, AA]
-        b:
-          - first: B
-            second: BB
-          - first: X
-            second: XX
     runs-on: ubuntu-20.04
     steps:
       - name: Check out this project
         uses: actions/checkout@v2
-      # - name: Test
-      #   run: |
-      #     echo "GH ACTOR: " "$GITHUB_ACTOR"
-      #     git config --list
-      #     git config user.email || echo "failed"
-      # - name: Var test step 1
-      #   run: |
-      #     export VAR1=true
-      #     echo "(env)     VAR1=$VAR1"
-      #     echo "(context) VAR1=${{ env.VAR1 }}"
-      #     echo "VAR2=true" >> $GITHUB_ENV
-      #     echo "(env)     VAR2=$VAR2"
-      #     echo "(context) VAR2=${{ env.VAR2 }}"
-      #     # echo "VAR3=2" >> $GITHUB_ENV
-      # - name: Var test
-      #   env:
-      #     VARF: ${{ false }}
-      #     VART: ${{ true }}
-      #   run: |
-      #     echo "JSON=${{ toJSON(env.VARF)  }}"
-      #     echo "JSON=${{ toJSON(env.VARF == 'false')  }}"
-      #     echo "JSON=${{ toJSON(env.VARF == 'true')  }}"
-      #     echo "VART=${{ env.VARF == 'true' }}"
-      #     echo "VART=${{ env.VART == 'true' }}"
-      #     echo "VARF && VART=${{ env.VARF == 'true' && env.VART == 'true' }}"
-      #     echo "VARF || VART=${{ env.VARF == 'true' || env.VART  == 'true' }}"
-      #     echo "!VARF=${{ ! (env.VARF == 'true') }}"
-      #     echo "!!VARF=${{ !! (env.VARF == 'true') }}"
-      - name: URL Test
+      - name: Install ImageMagick
         run: |
-          echo 'https://example.com'
-          echo 'https://a.example.com'
-          echo 'https://aa.example.com'
-          echo 'https://a.co'
-          echo 'https://aa.co'
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+      - name: Run compare
+        run: |
+          set +x
+          compare tall.png tall.png NULL: || echo '(failed 1)'
+          compare -metric RMSE tall.png tall.png NULL: || echo '(failed 2)'
